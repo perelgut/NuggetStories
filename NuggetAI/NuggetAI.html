@@ -8,23 +8,23 @@
   html, body {
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: #f2f2f2;
     font-family: Arial, sans-serif;
   }
 
   body {
-    min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
   }
 
   #app {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
-    flex: 1 1 auto;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -62,7 +62,7 @@
 
   #container {
     position: relative;
-    flex: 1 1 0;
+    flex: 1 1 auto;
     min-height: 0;
     display: flex;
     justify-content: center;
@@ -77,11 +77,9 @@
     display: block;
     max-width: 100%;
     max-height: 100%;
-    width: auto;
-    height: auto;
     object-fit: contain;
     opacity: 0;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.35s ease;
   }
 
   .arrow {
@@ -112,8 +110,14 @@
     font-size: 0.95rem;
   }
 
-  @media (hover:hover) {
-    .arrow:hover { color: rgba(0,0,0,0.8); }
+  @media (max-width: 600px) {
+    #container {
+      min-height: 60vh;
+    }
+
+    .arrow {
+      font-size: clamp(1.75rem, 10vw, 3rem);
+    }
   }
 </style>
 </head>
@@ -126,8 +130,8 @@
 
   <div id="container">
     <img id="pageImage" src="" alt="Story page">
-    <div id="leftArrow" class="arrow hidden">&#8592;</div>
-    <div id="rightArrow" class="arrow hidden">&#8594;</div>
+    <div id="leftArrow" class="arrow hidden">←</div>
+    <div id="rightArrow" class="arrow hidden">→</div>
   </div>
 
   <div class="footer">
@@ -156,119 +160,14 @@
 
   function updatePage() {
     pageImage.style.opacity = 0;
-
-    setTimeout(() => {
-      pageImage.src = pages[currentPage];
-      pageImage.alt = `Page ${currentPage + 1}`;
-      pageImage.onload = () => {
-        pageImage.style.opacity = 1;
-      };
-      leftArrow.classList.toggle("hidden", currentPage === 0);
-      rightArrow.classList.toggle("hidden", currentPage === pages.length - 1);
-      pageCounter.textContent = `Page ${currentPage + 1} / ${pages.length}`;
-    }, 200);
-  }
-
-  function changePage(delta) {
-    const nextPage = currentPage + delta;
-    if (nextPage >= 0 && nextPage < pages.length) {
-      currentPage = nextPage;
-      updatePage();
-    }
-  }
-
-  rightArrow.addEventListener("click", () => changePage(1));
-  leftArrow.addEventListener("click", () => changePage(-1));
-
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  pageImage.addEventListener("touchstart", e => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
-
-  pageImage.addEventListener("touchend", e => {
-    touchEndX = e.changedTouches[0].screenX;
-    if (touchEndX < touchStartX - 50) {
-      changePage(1);
-    }
-    if (touchEndX > touchStartX + 50) {
-      changePage(-1);
-    }
-  });
-
-  updatePage();
-</script>
-</body>
-</html>
-  .arrow.hidden {
-    display: none;
-  }
-
-  .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    color: #444;
-    font-size: 0.95rem;
-  }
-
-  @media (hover:hover) {
-    .arrow:hover { color: rgba(0,0,0,0.8); }
-  }
-</style>
-</head>
-<body>
-<div id="app">
-  <header>
-    <h1>Nugget and the Runaway AI</h1>
-    <a href="../index.html" class="back-link">← Back to Books</a>
-  </header>
-
-  <div id="container">
-    <img id="pageImage" src="" alt="Story page">
-    <div id="leftArrow" class="arrow hidden">&#8592;</div>
-    <div id="rightArrow" class="arrow hidden">&#8594;</div>
-  </div>
-
-  <div class="footer">
-    <div id="pageCounter">Page 0 / 0</div>
-    <div>Swipe or click arrows to navigate.</div>
-  </div>
-</div>
-
-<script>
-  const pages = [
-    "Nugget AI cover.png",
-    "Nugget AI pg 1.png",
-    "Nugget AI pg 2.png",
-    "Nugget AI pg 3.png",
-    "Nugget AI pg 4.png",
-    "Nugget AI pg 5.png",
-    "Nugget AI pg 6.png",
-    "Nugget AI pg 7.png"
-  ];
-
-  let currentPage = 0;
-  const pageImage = document.getElementById("pageImage");
-  const leftArrow = document.getElementById("leftArrow");
-  const rightArrow = document.getElementById("rightArrow");
-  const pageCounter = document.getElementById("pageCounter");
-
-  function updatePage() {
-    pageImage.style.opacity = 0;
-
-    setTimeout(() => {
-      pageImage.src = pages[currentPage];
-      pageImage.alt = `Page ${currentPage + 1}`;
-      pageImage.onload = () => {
-        pageImage.style.opacity = 1;
-      };
-      leftArrow.classList.toggle("hidden", currentPage === 0);
-      rightArrow.classList.toggle("hidden", currentPage === pages.length - 1);
-      pageCounter.textContent = `Page ${currentPage + 1} / ${pages.length}`;
-    }, 200);
+    pageImage.src = pages[currentPage];
+    pageImage.alt = `Page ${currentPage + 1}`;
+    pageImage.onload = () => {
+      pageImage.style.opacity = 1;
+    };
+    leftArrow.classList.toggle("hidden", currentPage === 0);
+    rightArrow.classList.toggle("hidden", currentPage === pages.length - 1);
+    pageCounter.textContent = `Page ${currentPage + 1} / ${pages.length}`;
   }
 
   function changePage(delta) {

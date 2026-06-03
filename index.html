@@ -1,0 +1,257 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NuggetAI - Storybook Collection</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+  }
+
+  #app {
+    width: 100%;
+    max-width: 800px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+
+  header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+  }
+
+  h1 {
+    margin: 0 0 12px 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: bold;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  .books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
+
+  .book-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    color: #222;
+    cursor: pointer;
+  }
+
+  .book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .book-icon {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+
+  .book-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 12px 0;
+    color: #333;
+  }
+
+  .book-description {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 12px 0 0 0;
+  }
+
+  .read-button {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+
+  .book-card:hover .read-button {
+    background: #764ba2;
+  }
+
+  @media (max-width: 600px) {
+    .books-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>🪶 NuggetAI</h1>
+    <p class="subtitle">Illustrated Storybooks for Young Readers</p>
+  </header>
+
+  <div class="books-container">
+    <a href="NuggetAI/NuggetAI.html" class="book-card">
+      <img src="NuggetAI/Nugget AI cover.png" alt="Nugget and the Runaway AI" class="book-icon">
+      <div class="book-title">Nugget and the Runaway AI</div>
+      <div class="book-description">A charming tale of adventure and friendship.</div>
+      <div class="read-button">Read Story</div>
+    </a>
+  </div>
+</div>
+</body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NuggetAI - Storybook Collection</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+  }
+
+  #app {
+    width: 100%;
+    max-width: 800px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+
+  header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+  }
+
+  h1 {
+    margin: 0 0 12px 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: bold;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  .books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
+
+  .book-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    color: #222;
+    cursor: pointer;
+  }
+
+  .book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .book-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+  }
+
+  .book-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 12px 0;
+    color: #333;
+  }
+
+  .book-description {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 12px 0 0 0;
+  }
+
+  .read-button {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+
+  .book-card:hover .read-button {
+    background: #764ba2;
+  }
+
+  @media (max-width: 600px) {
+    .books-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>🪶 NuggetAI</h1>
+    <p class="subtitle">Illustrated Storybooks for Young Readers</p>
+  </header>
+
+  <div class="books-container">
+    <a href="NuggetAI/NuggetAI.html" class="book-card">
+      <div class="book-icon">📖</div>
+      <div class="book-title">Nugget and the Runaway AI</div>
+      <div class="book-description">A charming tale of adventure and friendship.</div>
+      <div class="read-button">Read Story</div>
+    </a>
+  </div>
+</div>
+</body>
+>>>>>>> f50463dde8afa52f2af05600f3fe89db34dc5e70
+</html>
